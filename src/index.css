@@ -33,6 +33,10 @@ ul {
   width: 50px;
 }
 
+.red-border {
+  border: 3px solid red;
+}
+
 .square:focus {
   outline: none;
 }
