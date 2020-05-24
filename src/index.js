@@ -64,6 +64,7 @@ class Game extends React.Component {
       ],
       isNext: true,
       stepNumber: 0,
+      listBold: null,
     };
   }
 
@@ -75,6 +76,10 @@ class Game extends React.Component {
   }
 
   handleClick(i) {
+    let items = document.querySelectorAll(".font-bold");
+    for (let i = 0; i < items.length; i++) {
+      items[i].style.fontWeight = "normal";
+    }
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -126,10 +131,20 @@ class Game extends React.Component {
 
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button
+            className="font-bold"
+            onClick={(self) => {
+              self.target.style.fontWeight = "bold";
+
+              this.jumpTo(move);
+            }}
+          >
+            {desc}
+          </button>
         </li>
       );
     });
+
     let status;
     if (winner) {
       status = "Winner: " + winner;
