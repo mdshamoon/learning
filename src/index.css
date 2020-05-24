@@ -52,6 +52,11 @@ ul {
   margin-left: 20px;
 }
 
+ol {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
 .font-bold {
   font-weight: 100;
 }
